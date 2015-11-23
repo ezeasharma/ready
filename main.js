@@ -1,5 +1,8 @@
 var MergeSort = require('./merge-sort');
 var Queue = require('./queue-using-array');
+var QuickSort = require('./quick-sort');
+
+
 // var mergeSort = new MergeSort();
 // mergeSort.sort([1,2,3,4]);
 

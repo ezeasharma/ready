@@ -12,9 +12,6 @@ var MergeSort = function(){
 		{
 			tempRight.push(arr[p]);
 		}
-		console.log('***merging***');
-		console.log(tempLeft);
-		console.log(tempRight);
 		
 		var  k = start;
 		var i = 0, j = 0;
@@ -32,8 +29,6 @@ var MergeSort = function(){
 			}
 			k++;
 		}
-		
-		
 		
 		while(i < tempLeft.length){
 			arr[k] = tempLeft[i];
