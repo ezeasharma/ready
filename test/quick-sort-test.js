@@ -24,5 +24,10 @@ describe('Quick Sort', function(){
 			expect(quickSort.sort([4, 3, 2, 3, 2, 1])).to.eql([1, 2, 2, 3, 3, 4]);
 		});
 		
+		it('can sort simple low/high case', function(){
+			var quickSort = new QuickSort();
+			expect(quickSort.sort([4, 3, 1, 3, 2, 1])).to.eql([1, 1, 2, 3, 3, 4]);
+		});
+		
 	});
 });

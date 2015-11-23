@@ -18,6 +18,7 @@ describe('Queue', function(){
 			queue.enqueue(11);
 			expect(queue.dequeue()).to.equal(10);
 			expect(queue.dequeue()).to.equal(11);
+			expect(queue.dequeue()).to.equal(-1);
 		});
 	});
 });

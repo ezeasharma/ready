@@ -15,6 +15,7 @@ describe('Stack', function(){
 			expect(stack.pop()).to.equal(3);
 			expect(stack.pop()).to.equal(4);
 			expect(stack.count()).to.equal(0);
+			expect(stack.pop()).to.equal(null);
 		});
 	});
 });
