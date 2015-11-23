@@ -1,0 +1,9 @@
+machine:
+  node:
+  services:
+    - docker
+	
+test:
+  post:
+    - mocha -r blanket -R html-cov > $CIRCLE_ARTIFACTS/unit_test_coverage.html src/test/
+    
