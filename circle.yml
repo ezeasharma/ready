@@ -1,7 +1,5 @@
 machine:
   node:
-  services:
-    - docker
 	
 test:
   post:
