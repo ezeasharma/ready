@@ -3,6 +3,18 @@
   "version": "0.0.0",
   "description": "answers to some general interview questions",
   "main": "index.js",
+  "config": {
+    "blanket": {
+      "pattern": [
+        ""
+      ],
+      "data-cover-never": [
+        "node_modules",
+        "test",
+        "typings"
+      ]
+    }
+  },
   "scripts": {
     "test": "mocha"
   },
@@ -10,11 +22,6 @@
     "type": "git",
     "url": "https://github.com/ezeasharma/ready.git"
   },
-  "config": {
-      "blanket": {
-        "pattern": "test/**/*js"
-      }
-    },
   "keywords": [
     "interview",
     "questions"
