@@ -17,10 +17,18 @@ describe('Bst', function(){
 			expect(bst.count()).to.equal(9);
 			expect(bst.search(10)).to.be.false;
 			expect(bst.search(8)).to.be.true;
+			bst.insert(0);
+			expect(bst.search(0)).to.be.true;
 		});
 	});
 	
 	describe('Insert', function(){
+		it('creates root element if null', function(){
+			var bst = new Bst(null);
+			expect(bst.count()).to.equal(0);
+			bst.insert(1);
+			expect(bst.count()).to.equal(1);
+		});
 		it('adds the element to the bst', function(){
 			var bst = new Bst([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 			expect(bst.count()).to.equal(9);

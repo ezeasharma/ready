@@ -9,17 +9,11 @@ var Bst = function(input){
 		node.rightNode = createBst(input, midIndex + 1, end);
 		return node;
 	}
+	if(input == null)
+		this.root == null;
+	else
+		this.root = createBst(input, 0, input.length - 1);
 	
-	this.root = createBst(input, 0, input.length - 1);
-	
-	
-	var printInorder = function(node){
-		if(node == null)
-			return;
-		printInorder(node.leftNode);
-		console.info(node.data);
-		printInorder(node.rightNode);
-	}
 	
 	var numberOfElements = function(node){
 		if(node == null)
@@ -85,11 +79,6 @@ var Bst = function(input){
 	this.search = function(data)
 	{
 		return searchBst(this.root, data);
-	}
-	
-	this.print = function()
-	{
-		printInorder(this.root);
 	}
 }
 
