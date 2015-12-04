@@ -46,7 +46,7 @@ describe('Bst', function(){
 				assert.fail('should not reach here');
 			}
 			catch(e){
-				
+				expect(e).to.contain('Data already present');
 			}
 		});
 	});
