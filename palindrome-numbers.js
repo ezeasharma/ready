@@ -1,6 +1,6 @@
 var PalindromeNumber = function(){
 	this.checkNumberIsPalindrome = function(num){
-		console.log('input is ' + num);
+		//console.log('input is ' + num);
 		var divisor = 1;
 		var remainder = num/divisor;
 		
@@ -26,7 +26,7 @@ var PalindromeNumber = function(){
 	}
 	
 	this.createSwappedInteger = function(num){
-		console.log('input is ' + num);
+		//console.log('input is ' + num);
 		var divisor = 1;
 		var remainder = num/divisor;
 		
@@ -57,11 +57,11 @@ var PalindromeNumber = function(){
 		var result = 0;
 		for(var  i = 0; i < digitsInOrder.length; i++)
 		{
-			console.log(digitsInOrder[i] + ' * ' + multiplier);
+			//console.log(digitsInOrder[i] + ' * ' + multiplier);
 			result += digitsInOrder[i] * multiplier;
 			multiplier = multiplier / 10;
 		}
-		console.log('result is ' + result);
+		//console.log('result is ' + result);
 		return result;
 	}
 }

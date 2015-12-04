@@ -55,7 +55,7 @@ var MergeSort = function(){
 	this.sort = function(arr)
 	{
 		divide(arr, 0, arr.length - 1);
-		console.log(arr);
+		//console.log(arr);
 		return arr;
 	}	
 }

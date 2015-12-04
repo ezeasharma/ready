@@ -21,6 +21,18 @@ var Bst = function(input){
 		printInorder(node.rightNode);
 	}
 	
+	var numberOfElements = function(node){
+		if(node == null)
+			return 0;
+		var leftelementCount = numberOfElements(node.leftNode);
+		var rightelementCount = numberOfElements(node.rightNode);
+		return leftelementCount + rightelementCount + 1;
+	}
+	
+	this.count = function(){
+		return numberOfElements(this.root, 0);
+	}
+	
 	var searchBst = function(node, data)
 	{
 		if(node == null)
@@ -31,6 +43,43 @@ var Bst = function(input){
 			return searchBst(node.leftNode, data);
 		else
 			return searchBst(node.rightNode, data);
+	}
+	
+	var insertInBst = function(node, data)
+	{
+		if(node.data == data)
+			throw "Data already present :(";
+		
+		if(node.data > data)
+		{
+			if(node.leftNode == null)
+			{
+				node.leftNode = new Node();
+				node.leftNode.data = data; node.leftNode.leftNode = null; node.leftNode.rightNode = null;
+			}
+			else
+				insertInBst(node.leftNode, data);
+		}
+		else
+		{
+			if(node.rightNode == null)
+			{
+				node.rightNode = new Node();
+				node.rightNode.data = data; node.rightNode.leftNode = null; node.rightNode.rightNode = null;
+			}
+			else
+				insertInBst(node.rightNode, data);
+		}
+	}
+	
+	this.insert = function(data){
+		if(this.root == null)
+		{
+			this.root = new Node();
+			this.root.data = data; this.root.leftNode = null; this.root.rightNode = null;
+			return;
+		}
+		insertInBst(this.root, data);
 	}
 	
 	this.search = function(data)
