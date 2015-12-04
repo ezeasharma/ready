@@ -21,6 +21,23 @@ var Bst = function(input){
 		printInorder(node.rightNode);
 	}
 	
+	var searchBst = function(node, data)
+	{
+		if(node == null)
+			return false;
+		if(node.data == data)
+			return true;
+		if(node.data > data)
+			return searchBst(node.leftNode, data);
+		else
+			return searchBst(node.rightNode, data);
+	}
+	
+	this.search = function(data)
+	{
+		return searchBst(this.root, data);
+	}
+	
 	this.print = function()
 	{
 		printInorder(this.root);
