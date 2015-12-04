@@ -26,6 +26,8 @@ describe('Bst', function(){
 			expect(bst.count()).to.equal(9);
 			bst.insert(10);
 			expect(bst.count()).to.equal(10);
+			bst.insert(0);
+			expect(bst.count()).to.equal(11);
 		});
 		
 		it('throws exception if element is already present', function(){
