@@ -52,6 +52,16 @@ describe('Bst', function(){
 	});
 	
 	describe('delete', function(){
+		it('throws exception if node not found', function(){
+			var bst = new Bst(null);
+			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(25);
+			expect(bst.count()).to.equal(6);
+			try{
+				bst.delete(0);
+				assert.fail("should not reach here");
+			}
+			catch(e){}
+		});
 		it('deletes when no right child.', function(){
 			var bst = new Bst(null);
 			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(25);
