@@ -62,7 +62,7 @@ describe('Bst', function(){
 			expect(bst.count()).to.equal(4);
 		});
 		
-		it('deletes when no right child has no left child', function(){
+		it('deletes when right child has no left child', function(){
 			var bst = new Bst(null);
 			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(25);bst.insert(125);bst.insert(175);bst.insert(140);
 			expect(bst.count()).to.equal(9);
@@ -72,9 +72,9 @@ describe('Bst', function(){
 			expect(bst.count()).to.equal(7);
 		});
 		
-		it('deletes when no right child has left child', function(){
+		it('deletes when right child has left child', function(){
 			var bst = new Bst(null);
-			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(75);bst.insert(60);bst.insert(80);bst.insert(68);bst.insert(64);
+			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(75);bst.insert(66);bst.insert(80);bst.insert(68);bst.insert(64);
 			expect(bst.count()).to.equal(10);
 			bst.delete(50);
 			expect(bst.count()).to.equal(9);
