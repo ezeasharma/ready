@@ -70,6 +70,8 @@ describe('Bst', function(){
 			expect(bst.count()).to.equal(5);
 			bst.delete(150);
 			expect(bst.count()).to.equal(4);
+			bst.delete(5);
+			expect(bst.count()).to.equal(3);
 		});
 		
 		it('deletes when right child has no left child', function(){
