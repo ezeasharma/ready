@@ -23,10 +23,6 @@ var Bst = function(input){
 		return leftelementCount + rightelementCount + 1;
 	}
 	
-	this.count = function(){
-		return numberOfElements(this.root, 0);
-	}
-	
 	var searchBst = function(node, data)
 	{
 		if(node == null)
@@ -64,6 +60,31 @@ var Bst = function(input){
 			else
 				insertInBst(node.rightNode, data);
 		}
+	}
+	
+	this.count = function(){
+		return numberOfElements(this.root, 0);
+	}
+	
+	var findParentNode = function(node, data)
+	{	
+		if(node == null)
+			throw "Node not found";
+		if(node.data == data)	//this is root node.
+		{
+			return null;
+		}	
+			
+		if((node.rightNode != null && node.rightNode.data == data)
+				 || (node.leftNode != null && node.leftNode.data == data))
+			return node;
+		
+		if(node.data > data)
+		{
+			return findParentNode(node.leftNode, data);
+		}
+		else
+			return findParentNode(node.rightNode, data);
 	}
 	
 	this.delete = function(data)
@@ -134,28 +155,6 @@ var Bst = function(input){
 		}
 	}
 	
-	var findParentNode = function(node, data)
-	{	
-		if(node == null)
-			throw "Node not found";
-		if(node.data == data)	//this is root node.
-		{
-			return null;
-		}	
-			
-		if((node.rightNode != null && node.rightNode.data == data)
-				 || (node.leftNode != null && node.leftNode.data == data))
-			return node;
-		
-		if(node.data > data)
-		{
-			return findParentNode(node.leftNode, data);
-		}
-		else
-			return findParentNode(node.rightNode, data);
-	}
-	
-	
 	this.insert = function(data){
 		if(this.root == null)
 		{
@@ -169,6 +168,27 @@ var Bst = function(input){
 	this.search = function(data)
 	{
 		return searchBst(this.root, data);
+	}
+	
+	var checkHeight = function(node)
+	{
+		if(node == null)
+			return 0;
+		var leftHeight = checkHeight(node.leftNode);
+		var rightHeight = checkHeight(node.rightNode);
+		
+		if(leftHeight > rightHeight)
+			return leftHeight + 1;
+		return rightHeight + 1;
+	}
+	
+	this.isBst = function(){
+		if(this.root == null)
+			return true;
+		var leftHeight = checkHeight(this.root.leftNode);
+		var rightHeight = checkHeight(this.root.rightNode);
+		return Math.abs(leftHeight - rightHeight) < 2;
+		
 	}
 }
 

@@ -51,6 +51,18 @@ describe('Bst', function(){
 		});
 	});
 	
+	describe('isBst', function(){
+		it('returns true if a tree is bst', function(){
+			var bst = new Bst([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+			expect(bst.count()).to.equal(9);
+			expect(bst.isBst()).to.be.true;
+			
+			bst = new Bst([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+			expect(bst.count()).to.equal(16);
+			expect(bst.isBst()).to.be.true;
+		})
+  	});
+	
 	describe('delete', function(){
 		it('throws exception if node not found', function(){
 			var bst = new Bst(null);
