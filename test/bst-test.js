@@ -50,4 +50,55 @@ describe('Bst', function(){
 			}
 		});
 	});
+	
+	describe('delete', function(){
+		it('deletes when no right child.', function(){
+			var bst = new Bst(null);
+			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(25);
+			expect(bst.count()).to.equal(6);
+			bst.delete(50);
+			expect(bst.count()).to.equal(5);
+			bst.delete(150);
+			expect(bst.count()).to.equal(4);
+		});
+		
+		it('deletes when no right child has no left child', function(){
+			var bst = new Bst(null);
+			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(25);bst.insert(125);bst.insert(175);bst.insert(140);
+			expect(bst.count()).to.equal(9);
+			bst.delete(150);
+			expect(bst.count()).to.equal(8);
+			bst.delete(20);
+			expect(bst.count()).to.equal(7);
+		});
+		
+		it('deletes when no right child has left child', function(){
+			var bst = new Bst(null);
+			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(75);bst.insert(60);bst.insert(80);bst.insert(68);
+			expect(bst.count()).to.equal(9);
+			bst.delete(50);
+			expect(bst.count()).to.equal(8);
+			bst.insert(67);
+			expect(bst.count()).to.equal(9);
+			bst.delete(75);
+			expect(bst.count()).to.equal(8);
+		});
+		
+		it('deletes the root node', function(){
+			var bst = new Bst(null);
+			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(75);bst.insert(60);bst.insert(80);bst.insert(68);
+			bst.delete(90);
+			expect(bst.count()).to.equal(8);
+			
+			bst = new Bst(null);
+			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(25);
+			bst.delete(90);
+			expect(bst.count()).to.equal(5);
+			
+			bst = new Bst(null);
+			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(25);bst.insert(125);bst.insert(175);bst.insert(140);
+			bst.delete(90);
+			expect(bst.count()).to.equal(8);
+		});
+	});
 });
