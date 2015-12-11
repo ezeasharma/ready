@@ -51,16 +51,29 @@ describe('Bst', function(){
 		});
 	});
 	
-	describe('isBst', function(){
-		it('returns true if a tree is bst', function(){
+	describe('isBST', function(){
+		it('', function(){
 			var bst = new Bst([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 			expect(bst.count()).to.equal(9);
-			expect(bst.isBst()).to.be.true;
+			expect(bst.isBST()).to.be.true;
+		});
+	});
+	
+	describe('isBalancedBST', function(){
+		it('returns true if a tree is isBalancedBST bst', function(){
+			var bst = new Bst([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+			expect(bst.count()).to.equal(9);
+			expect(bst.isBalancedBST()).to.be.true;
 			
 			bst = new Bst([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
 			expect(bst.count()).to.equal(16);
-			expect(bst.isBst()).to.be.true;
-		})
+			expect(bst.isBalancedBST()).to.be.true;
+			
+			bst = new Bst(null);
+			bst.insert(90);bst.insert(50);bst.insert(150);bst.insert(20);bst.insert(5);bst.insert(25);
+			expect(bst.count()).to.equal(6);
+			expect(bst.isBalancedBST()).to.be.false;
+		});
   	});
 	
 	describe('delete', function(){

@@ -182,13 +182,32 @@ var Bst = function(input){
 		return rightHeight + 1;
 	}
 	
-	this.isBst = function(){
+	this.isBalancedBST = function(){
 		if(this.root == null)
 			return true;
 		var leftHeight = checkHeight(this.root.leftNode);
 		var rightHeight = checkHeight(this.root.rightNode);
 		return Math.abs(leftHeight - rightHeight) < 2;
+	}
+	
+	var checkBt = function(node){
+		if(node == null)
+			return null;
 		
+		var leftStat = checkBt(node.leftNode);
+		var rightStat = checkBt(node.rightNode);
+		
+		var min = leftStat == null ? node.data : leftStat.Min;
+		var max = rightStat == null ? node.data : rightStat.Max;			
+		var leftBST = leftStat == null ? true : leftStat.IsBST;
+		var rightBST = rightStat == null ? true : rightStat.IsBST;
+		var isBst = leftBST && rightBST && (leftStat == null || leftStat.Max < node.data) && (rightStat == null || rightStat.Min > node.data)
+		
+		return {Min : min, Max : max, IsBST : isBst};
+	}
+	
+	this.isBST = function(){
+		return checkBt(this.root).IsBST;
 	}
 }
 
